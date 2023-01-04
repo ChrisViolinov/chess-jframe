@@ -1,8 +1,3 @@
-import panels.BotPanel;
-import panels.ChessBoardPanel;
-import panels.SidePanel;
-import panels.TopPanel;
-
 public class Main {
     public static void main(String[] args) {
 

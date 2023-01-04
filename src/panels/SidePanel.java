@@ -4,18 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SidePanel extends JPanel {
-
+    JLabel label;
+    ImageIcon icon;
     SidePanel() {
-        this.setBounds(550,0,300,250);
-        this.setBackground(Color.WHITE); // setting the panel color
+        //this.setBounds(550,0,300,250); // where to place it in Null Layout
+        this.setBackground(new Color(50,50,80)); // setting the panel color
         this.setLayout(new BorderLayout());  // setting layout for the panel > starting from center-left
-
-        JLabel label = new JLabel();
-        this.add(label);
-
-        label.setText("Text");
-        label.setHorizontalAlignment(JLabel.RIGHT); // setting the alignment to the right side
-        label.setVerticalTextPosition(JLabel.BOTTOM); // text at the bottom of the image
-        label.setHorizontalTextPosition(JLabel.CENTER); // text in the center
     }
 }

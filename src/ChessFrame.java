@@ -1,12 +1,7 @@
-import panels.BotPanel;
-import panels.ChessBoardPanel;
-import panels.SidePanel;
-import panels.TopPanel;
+import panels.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ChessFrame extends JFrame {
 
@@ -15,37 +10,32 @@ public class ChessFrame extends JFrame {
 
          this.setTitle("Chess Game by Nockreg"); // set the title of the frame
          this.setVisible(true); // make frame visible
-         this.setSize(950, 650); // set x-dimensions (width) and y-dimensions (height) of the frame
+         this.setSize(1200, 800); // set x-dimensions (width) and y-dimensions (height) of the frame
          this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // closes the app when clicking X button
          this.getContentPane().setBackground(new Color(125,125,225)); // change background color by custom color
-         this.setLayout(null); // allow you to use labels as separate elements
+         this.setLayout(new BorderLayout()); // allow you to use labels as separate elements
          //this.pack(); // set frame size to fit all the label elements
          //this.setResizable(false); // prevent frame from being resized
 
          ChessBoardPanel board = new ChessBoardPanel();
-         SidePanel botPanel = new BotPanel();
-         SidePanel topPanel = new TopPanel();
+         SidePanel chatPanel = new ChatPanel();
+         SidePanel avatarPanel = new AvatarPanel();
+         BottomPanel bottomPanel = new BottomPanel();
+         TopPanel topPanel = new TopPanel();
 
-         this.add(botPanel);
-         this.add(topPanel);
-         this.add(board);
+         this.add(chatPanel, BorderLayout.EAST);
+         this.add(avatarPanel, BorderLayout.WEST);
+         this.add(board, BorderLayout.CENTER);
+         this.add(bottomPanel, BorderLayout.SOUTH);
+         this.add(topPanel, BorderLayout.NORTH);
 
-         DemoButton resignButton = new DemoButton(); // creates new button
-         this.add(resignButton); // add the button to the frame
-         resignButton.setText("Resign");
-         resignButton.addActionListener(e-> System.out.println("You Lose"));
+         board.setPreferredSize(new Dimension(500, 500));
+         avatarPanel.setPreferredSize(new Dimension(250, 400));
+         chatPanel.setPreferredSize(new Dimension(250, 400));
+         bottomPanel.setPreferredSize((new Dimension(600, 100)));
+         topPanel.setPreferredSize((new Dimension(600, 100)));
 
-         DemoButton drawButton = new DemoButton(); // creates new button
-         drawButton.setBounds(180, 550, 100, 50); // set bounds of the button
-         this.add(drawButton); // add the button to the frame
-         drawButton.setText("Draw");
-         drawButton.addActionListener(e-> System.out.println("It's a draw"));
 
-         DemoButton messageButton = new DemoButton(); // creates new button
-         messageButton.setBounds(550, 550, 100, 50); // set bounds of the button
-         this.add(messageButton); // add the button to the frame
-         messageButton.setText("Message");
-         messageButton.addActionListener(e-> System.out.println("Whats on your mind"));
     }
 
 
